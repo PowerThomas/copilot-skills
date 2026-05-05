@@ -4,6 +4,18 @@ A collection of GitHub Copilot skills for Power Platform development.
 
 ## Skills
 
+### [`pac-flow-dev`](skills/pac-flow-dev/)
+
+Develop and deploy Power Automate cloud flows via PAC CLI and mini-solutions.
+
+- Edit cloud flow JSON locally using a lightweight mini-solution roundtrip
+- Avoids exporting the entire solution — fast and targeted
+- Covers create, export, edit, pack, and import
+
+**Use when:** modifying flow definitions, creating new flows from JSON, bulk-editing expressions, or when the Power Automate designer is too limited.
+
+---
+
 ### [`pac-data-migrate`](skills/pac-data-migrate/)
 
 Migrate data from a Dataverse table between Power Platform environments using PAC CLI.
