@@ -63,7 +63,7 @@ pac solution add-solution-component --solutionUniqueName "<SolutionName>" --comp
 
 Component type `29` = Workflow (includes cloud flows).
 
-> To find the flow GUID: open the flow in make.powerapps.com → the GUID is in the URL, or query the main solution export.
+> To find the flow GUID: open the flow in make.powerapps.com → the GUID is in the URL. Alternatively, export and unpack the main solution — the flow JSON filename contains the GUID: `<FlowName>-<GUID>.json`.
 
 ### Phase 2 — Export and Unpack
 
@@ -162,6 +162,7 @@ pac solution delete --solution-name "<SolutionName>"
 |---------|----------|
 | `generatedBy` missing error on pack | Add `generatedBy="CrmLive"` to `<ImportExportXml>` in Solution.xml |
 | `does not exist` on add-solution-component | Verify the GUID is correct and the flow exists in the environment |
+| `component not declared as root component` on import | The mini-solution doesn't exist in Dataverse yet. First import the empty mini-solution (without Workflows/), then `add-solution-component`, then export+unpack to get the correct structure, then edit and import with `--force-overwrite`. |
 | Flow deactivated after import | Expected — manually reactivate in make.powerapps.com or the model-driven app |
 | Expression parsing errors | Check JSON escaping — `@` expressions inside strings need proper quoting |
 | Publisher mismatch | The mini-solution publisher must match or be compatible with the flow's publisher prefix |
